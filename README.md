@@ -3,7 +3,7 @@
 `vim` syntax highlighting for **S**treams and **I**teration In A
 **S**ingle-**A**ssignment **L**anguage (SISAL).
 
-![Example highlighting with the lovelace style](/screenshot.png)
+![Example highlighting](/screenshot.png)
 
 # Installation
 
