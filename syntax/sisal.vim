@@ -41,14 +41,22 @@ syntax keyword sisalError error
 highlight link sisalError WarningMsg
 
 " Identifiers {{{1
-"syntax region start="(" end=")"
-"syntax match sisalIdentifier "\v\<\h[a-zA-Z0-9#_]*\>"
-"syntax match sisalValue /\v\zs([_A-Za-z0-9]+\ze\s*,\s*)*\zs[_A-Za-z0-9]+\ze\s*:\=/
-"syntax match sisalValue /\v(\zs[_A-Za-z0-9]+\ze)\(@!/
-"highlight link sisalIdentifier Identifier
+syntax match sisalIdentifier /\v<\h[a-zA-Z0-9]*>/ contained
+syntax match sisalSingleAssign /\v\zs<\h[a-zA-Z0-9]*>\ze\s*:\=/
+"syntax match sisalMultiAssign  /\v\zs<\h[a-zA-Z0-9]*>\ze\s*:\=/
+syntax region sisalFunctionArguments start='(' end=')' matchgroup=Delimiter contains=sisalIdentifier,sisalReturns,sisalIntegerLiteral,sisalRealLiteral,sisalDoubleRealLiteral nextgroup=sisalIdentifier
+highlight link sisalIdentifier   Identifier
+highlight link sisalSingleAssign Identifier
 
 " Keywords {{{1
-syntax keyword sisalKeyword function is let in tagcase otherwise type returns forward define old of
+syntax keyword sisalFunctionKeyword function skipwhite nextgroup=sisalIdentifier
+syntax keyword sisalTypeAlias       type skipwhite nextgroup=sisalIdentifier
+syntax keyword sisalReturns         returns
+highlight link sisalFunctionKeyword Keyword
+highlight link sisalTypeAlias       Keyword
+highlight link sisalReturns         Keyword
+
+syntax keyword sisalKeyword is let in tagcase otherwise forward define old of
 syntax keyword sisalBoolean false true
 syntax keyword sisalNil     nil
 syntax match sisalEndLet      /\vend let/
