@@ -4,6 +4,7 @@
 **S**ingle-**A**ssignment **L**anguage (SISAL).
 
 ![Example highlighting](/screenshot.png)
+([hybrid](https://github.com/w0ng/vim-hybrid) colorscheme)
 
 # Installation
 
