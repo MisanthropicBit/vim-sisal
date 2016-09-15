@@ -8,24 +8,6 @@ let b:current_syntax = "sisal"
 let s:cpo_save = &cpo
 set cpo&vim
 
-" Types {{{1
-syntax keyword sisalTypes        boolean null
-syntax keyword sisalComplexTypes array stream record union
-highlight link sisalFloats       Type
-highlight link sisalTypes        Type
-highlight link sisalComplexTypes Structure
-
-" We need to match these types separately since they have equivalent
-" functions with the same name
-syntax match sisalInteger    /\v\zsinteger\ze\(@!/
-syntax match sisalReal       /\v\zsreal\ze\(@!/
-syntax match sisalDoubleReal /\v\zsdouble_real\ze\(@!/
-syntax match sisalCharacter  /\v\zscharacter\ze\(@!/
-highlight link sisalInteger    Type
-highlight link sisalReal       Type
-highlight link sisalDoubleReal Type
-highlight link sisalCharacter  Type
-
 " Numeric literals {{{1
 "syntax match sisalBooleanLiteral    /\v(\s+|^)[TF]\{1}(\s+|\n)/
 syntax match sisalIntegerLiteral    /\v-?\d+/
@@ -44,9 +26,31 @@ highlight link sisalError WarningMsg
 syntax match sisalIdentifier /\v<\h[a-zA-Z0-9]*>/ contained
 syntax match sisalSingleAssign /\v\zs<\h[a-zA-Z0-9]*>\ze\s*:\=/
 "syntax match sisalMultiAssign  /\v\zs<\h[a-zA-Z0-9]*>\ze\s*:\=/
-syntax region sisalFunctionArguments start='(' end=')' matchgroup=Delimiter contains=sisalIdentifier,sisalReturns,sisalIntegerLiteral,sisalRealLiteral,sisalDoubleRealLiteral nextgroup=sisalIdentifier
+syntax region sisalFunctionArguments start='(' end=')' matchgroup=Delimiter contains=@sisalBaseTypes,sisalComplexTypes,sisalIdentifier,sisalReturns nextgroup=sisalIdentifier
 highlight link sisalIdentifier   Identifier
 highlight link sisalSingleAssign Identifier
+
+" Types {{{1
+syntax keyword sisalBoolean      boolean
+syntax keyword sisalNull         null
+syntax keyword sisalComplexTypes array stream record union
+highlight link sisalFloats       Type
+highlight link sisalBoolean      Type
+highlight link sisalNull         Type
+highlight link sisalComplexTypes Structure
+
+" We need to match these types separately since they have equivalent
+" functions with the same name
+syntax match sisalInteger    /\v\zsinteger\ze\(@!/
+syntax match sisalReal       /\v\zsreal\ze\(@!/
+syntax match sisalDoubleReal /\v\zsdouble_real\ze\(@!/
+syntax match sisalCharacter  /\v\zscharacter\ze\(@!/
+highlight link sisalInteger    Type
+highlight link sisalReal       Type
+highlight link sisalDoubleReal Type
+highlight link sisalCharacter  Type
+
+syntax cluster sisalBaseTypes contains=sisalBoolean,sisalNull,sisalInteger,sisalReal,sisalDoubleReal,sisalCharacter
 
 " Keywords {{{1
 syntax keyword sisalFunctionKeyword function skipwhite nextgroup=sisalIdentifier
