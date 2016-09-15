@@ -1,9 +1,10 @@
-# vim-sisal
+# vim-sisal [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/MisanthropicBit/vim-sisal/master/LICENSE)
 
 `vim` syntax highlighting for **S**treams and **I**teration In A
 **S**ingle-**A**ssignment **L**anguage (SISAL).
 
 ![Example highlighting](/screenshot.png)
+
 ([hybrid](https://github.com/w0ng/vim-hybrid) colorscheme)
 
 # Installation
