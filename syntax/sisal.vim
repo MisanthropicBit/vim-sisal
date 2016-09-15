@@ -113,7 +113,7 @@ syntax match sisalOperator /\v:\=/
 highlight link sisalOperator Operator
 
 " Built-in functions {{{1
-syntax keyword sisalFunction         sum product exp greatest least catenate floor trunc max min
+syntax keyword sisalFunction         sum product exp greatest least catenate floor trunc max min mod abs
 syntax keyword sisalArrayFunctions   array_fill array_limh array_liml array_size array_prefixsize array_adjust array_addh array_addl array_remh array_reml array_setl
 syntax keyword sisalStreamFunctions  stream_append stream_first stream_rest stream_empty stream_size stream_prefixsize
 syntax keyword sisalRecordFunctions  replace
