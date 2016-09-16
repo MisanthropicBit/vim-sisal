@@ -23,8 +23,8 @@ syntax keyword sisalError error
 highlight link sisalError WarningMsg
 
 " Identifiers {{{1
-syntax match sisalIdentifier /\v<\h[a-zA-Z0-9]*>/ contained
-syntax match sisalSingleAssign /\v\zs<\h[a-zA-Z0-9]*>\ze\s*:\=/
+syntax match sisalIdentifier /\v<\h\w*>/ contained nextgroup=sisalFunctionArguments
+syntax match sisalSingleAssign /\v\zs<\h\w*>\ze\s*:\=/
 "syntax match sisalMultiAssign  /\v\zs<\h[a-zA-Z0-9]*>\ze\s*:\=/
 syntax region sisalFunctionArguments start='(' end=')' matchgroup=Delimiter contains=@sisalBaseTypes,sisalComplexTypes,sisalIdentifier,sisalReturns nextgroup=sisalIdentifier contained
 highlight link sisalIdentifier   Identifier
