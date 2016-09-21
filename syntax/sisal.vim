@@ -10,9 +10,9 @@ set cpo&vim
 
 " Numeric literals {{{1
 "syntax match sisalBooleanLiteral    /\v(\s+|^)[TF]\{1}(\s+|\n)/
-syntax match sisalIntegerLiteral    /\v-?\d+/
-syntax match sisalRealLiteral       /\v-?\d+\.\d+([eE][+-]*\d+)?/
-syntax match sisalDoubleRealLiteral /\v-?\d+\.\d+([dD][+-]*\d+)?/
+syntax match sisalIntegerLiteral    /\v<\%(-?\d+)/
+syntax match sisalRealLiteral       /\v<\%(-?\d+\.\d+([eE][+-]*\d+)?)/
+syntax match sisalDoubleRealLiteral /\v<\%(-?\d+\.\d+([dD][+-]*\d+)?)/
 "highlight link sisalBooleanLiteral    Constant
 highlight link sisalIntegerLiteral    Constant
 highlight link sisalRealLiteral       Constant
