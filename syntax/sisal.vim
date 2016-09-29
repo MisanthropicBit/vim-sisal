@@ -41,10 +41,10 @@ highlight link sisalComplexTypes Structure
 
 " We need to match these types separately since they have equivalent
 " functions with the same name
-syntax match sisalInteger    /\v\zsinteger\ze\(@!/
-syntax match sisalReal       /\v\zsreal\ze\(@!/
-syntax match sisalDoubleReal /\v\zsdouble_real\ze\(@!/
-syntax match sisalCharacter  /\v\zscharacter\ze\(@!/
+syntax match sisalInteger    /\v<\zsinteger\ze\(@!/
+syntax match sisalReal       /\v<\zsreal\ze\(@!/
+syntax match sisalDoubleReal /\v<\zsdouble_real\ze\(@!/
+syntax match sisalCharacter  /\v<\zscharacter\ze\(@!/
 highlight link sisalInteger    Type
 highlight link sisalReal       Type
 highlight link sisalDoubleReal Type
